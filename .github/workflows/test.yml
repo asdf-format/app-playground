@@ -25,9 +25,16 @@ jobs:
       - run: git checkout -b ${{ steps.branch.outputs.name }}
       - run: |
           echo "name: test" > .github/workflows/new.yml
+          echo "on:" >> .github/workflows/new.yml
+          echo "  workflow_dispatch:" >> .github/workflows/new.yml
+          echo "jobs:" >> .github/workflows/new.yml
+          echo "  job1:" >> .github/workflows/new.yml
+          echo "    runs-on: ubuntu-latest" >> .github/workflows/new.yml
+          echo "    steps:" >> .github/workflows/new.yml
+          echo "      - runs: echo oi" >> .github/workflows/new.yml
       - run: |
           git add -A
-          git commit -a -m "apply changes from the upstream template with Cruft"
+          git commit -a -m "test changing a workflow file under `.github/workflows`"
           git push -u origin ${{ steps.branch.outputs.name }}
       - name: Create pull request
         env:
