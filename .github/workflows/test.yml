@@ -17,8 +17,8 @@ jobs:
           private-key: ${{ secrets.WORKFLOW_APP_PRIVATE_KEY }}
       - name: Configure git credentials
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "asdf-test-app"
+          git config user.email "support@asdf-format.org"
           git remote set-url origin https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}
       - id: branch
         run: echo name=commit_workflow_changes >> $GITHUB_OUTPUT
