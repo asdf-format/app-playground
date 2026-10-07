@@ -5,4 +5,4 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - runs: echo oi
+      - run: echo oi
