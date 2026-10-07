@@ -17,7 +17,7 @@ jobs:
           private-key: ${{ secrets.WORKFLOW_APP_PRIVATE_KEY }}
       - name: Configure git credentials
         run: |
-          git config user.name "asdf-test-app"
+          git config user.name "asdf-test-app[bot]"
           git config user.email "support@asdf-format.org"
           git remote set-url origin https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}
       - id: branch
@@ -34,7 +34,7 @@ jobs:
           echo "      - runs: echo oi" >> .github/workflows/new.yml
       - run: |
           git add -A
-          git commit -a -m "test changing a workflow file under `.github/workflows`"
+          git commit -a -m "test changing a workflow file under .github/workflows"
           git push -u origin ${{ steps.branch.outputs.name }}
       - name: Create pull request
         env:
